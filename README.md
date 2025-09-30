@@ -17,7 +17,9 @@ pip install -r requirements/requirements-cpu.txt
 pip install -r requirements/requirements-base.txt
 
 ---
-Response (JSON 예시, 주석으로 필드 설명)
+### Response (JSON 예시)
+
+```jsonc
 {
   "prediction": {
     "decision": "치와와",                 // 최종 판정 ("믹스" or 품종명)
@@ -28,30 +30,19 @@ Response (JSON 예시, 주석으로 필드 설명)
       "label_ko": "치와와",              // 한글 라벨(ko_mapping.csv 매핑)
       "prob": 0.59                       // softmax 확률
     },
-    "topk": [ ... 동일 구조 ... ],
-    "reasons": {
-      "D_entropy": {                     // 믹스 판정 근거(엔트로피)
-        "trigger": false,                // true면 "믹스"로 최종 결정
-        "H": 1.23,                       // 예측 분포 엔트로피 값
-        "threshold": 2.0                 // 임계치(기본 2.0)
-      }
-    }
+    "topk": [ /* 동일 구조 */ ],
+    "reasons": { "D_entropy": { "trigger": false, "H": 1.23, "threshold": 2.0 } }
   },
   "boxes": {
-    "selected": [12.3, 45.6, 123.4, 200.1], // 선택된 bbox [x1,y1,x2,y2]
-    "conf": 0.87,                            // YOLO confidence
-    "detected": true,                        // 탐지 성공 여부
-    "yolo_time_ms": 12.4,                    // YOLO 추론 시간(ms)
-    "image_size": [640, 480]                 // 원본 이미지 크기
+    "selected": [12.3, 45.6, 123.4, 200.1],
+    "conf": 0.87, "detected": true, "yolo_time_ms": 12.4, "image_size": [640, 480]
   },
   "meta": {
-    "pad": 0.16,                          // 크롭 padding 비율
-    "input_size": 480,                    // 분류기 입력 해상도
-    "model": "tf_efficientnetv2_m_in21ft1k",
-    "num_classes": 105,
-    "device": "cuda:0"                    // 실행 디바이스
+    "pad": 0.16, "input_size": 480, "model": "tf_efficientnetv2_m_in21ft1k",
+    "num_classes": 105, "device": "cuda:0"
   }
 }
+
 ---
 ## Notes
 
