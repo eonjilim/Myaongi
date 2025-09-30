@@ -9,12 +9,16 @@
 - Torch 먼저, 그다음 base 설치 (환경에 맞는 파일 선택)
 
 ### GPU (CUDA 12.8)
+```bash
 pip install -r requirements/requirements-gpu-cu128.txt
 pip install -r requirements/requirements-base.txt
+```
 
 ### CPU
+```bash
 pip install -r requirements/requirements-cpu.txt
 pip install -r requirements/requirements-base.txt
+```
 
 ---
 ### Response (JSON 예시)
@@ -42,12 +46,10 @@ pip install -r requirements/requirements-base.txt
     "num_classes": 105, "device": "cuda:0"
   }
 }
-
+```
 ---
 ## Notes
 
-서버 부팅 시 init(warmup=True) 한 번 호출하면 콜드스타트 없음.
-
-YOLO 가중치가 "yolov8s.pt"이면 Ultralytics가 자동 다운로드.
-
-가중치는 Git에 올리지 않음(.gitignore 처리). Release URL/SHA256은 predictor.py에서 관리.
+- 서버 부팅 시 init(warmup=True) 한 번 호출하면 콜드스타트 없음.
+- YOLO 가중치가 "yolov8s.pt"이면 Ultralytics가 자동 다운로드.
+- 가중치는 Git에 올리지 않음(.gitignore 처리). Release URL/SHA256은 predictor.py에서 관리.
