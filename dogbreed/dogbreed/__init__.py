@@ -1,2 +1,2 @@
-from .predictor import predict
-__all__ = ["predict"]
+from .predictor import predict, init
+__all__ = ["predict", "init"]
