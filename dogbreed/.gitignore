@@ -11,3 +11,8 @@ __pycache__/
 assets/**/*.pt
 assets/**/*.pth
 dogbreed/*.pt
+__pycache__/
+*.pyc
+assets/**/*.pt
+assets/**/*.pth
+dogbreed/*.pt
